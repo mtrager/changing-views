@@ -9,6 +9,7 @@ def dualSurface(S, R1):
     IncidenceIdeal = S + ideal(J.stack(U).minors(2))
     Dual = IncidenceIdeal.saturation(ideal(x0, x1, x2, x3))[0]
     Dual = Dual.elimination_ideal((x0, x1, x2, x3))
+
     return Dual
 
 
