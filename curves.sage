@@ -11,7 +11,7 @@ def general_curve(d):
 def dual_curve(F):
     """F is an equation in QQ[x0,x1,x2]"""
 
-    R2.< x0, x1, x2, u0, u1, u2, t > = QQ[]
+    R2.<x0, x1, x2, u0, u1, u2, t> = QQ[]
 
     # points on u0x0+u1x1+u2x2=0
     P = vector([-u1, u0, 0])
@@ -42,7 +42,7 @@ def hessian_determinant(F):
 
 def tangents_at_points(F, point_dict):
 
-    lines=[]
+    lines = []
     J = (jacobian(F.gens()[0], (x0, x1, x2))).subs(x0=1)
     for p in point_dict:
         lines.append(J.subs(x1=p['x1'], x2=p['x2']))
@@ -58,12 +58,12 @@ def dual_curve_old(F, R1):
     # R1. < x0, x1, x2, u0, u1, u2 > = QQ['x0,x1,x2,u0,u1,u2']
 
     F = F.change_ring(R1)
-    J=jacobian(F.gens()[0], (x0, x1, x2))
+    J = jacobian(F.gens()[0], (x0, x1, x2))
 
-    U=matrix(R1, [[u0, u1, u2]])
-    incidence_ideal=F + ideal(J.stack(U).minors(2))
-    dual_curve=incidence_ideal.saturation(ideal(x0, x1, x2))[0]
-    dual_curve=dual_curve.elimination_ideal((x0, x1, x2))
+    U = matrix(R1, [[u0, u1, u2]])
+    incidence_ideal = F + ideal(J.stack(U).minors(2))
+    dual_curve = incidence_ideal.saturation(ideal(x0, x1, x2))[0]
+    dual_curve = dual_curve.elimination_ideal((x0, x1, x2))
 
     return dual_curve
 
@@ -82,7 +82,7 @@ def flex_points_old(F):
 def flex_lines_old(F):
 
     zero = find_flex_points(F)
-    lines=[]
+    lines = []
     J = (jacobian(F.gens()[0], (x0, x1, x2))).subs(x0=1)
     for p in zero:
         lines.append(J.subs(x1=p['x1'], x2=p['x2']))
