@@ -9,7 +9,7 @@ def plot_curve(F, type=""):
         s("ring r = 0,(" + str(v[1]) + "," + str(v[2]) + "), dp; ")
         s("plot(" + str(F.gens()[0]) + ")")
 
-    g = F.plot(linewidth=2)
+    g = F.plot(linewidth=2, plot_points=1000)
 
     return g
 

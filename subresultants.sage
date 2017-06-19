@@ -14,6 +14,25 @@ def discriminant_polynomial(degree):
     return res
 
 
+def subresmat(p, q, i):
+    mat = p.sylvester_matrix(q)
+    dq = q.degree()
+    mat=mat.delete_rows(list(range(dq, dq +i)))
+    mat=mat.delete_rows(list(range(i)))
+    mat=mat.delete_columns(list(range(i)))
+    return mat
+
+
+def subrescoefs(p, q, i):
+    # p, q univariate
+    mat = subresmat(p, q, i)
+    k = mat.nrows()
+    cols = range(k -1)
+    return [mat.matrix_from_columns(cols +[j]).det() for j in range(k -1, k +i)]
+
+    # Old stuff
+
+
 def subresultant_1(poly0, poly1):
 
     d0=poly0.degree()
