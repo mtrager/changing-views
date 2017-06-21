@@ -35,7 +35,7 @@ def singular_points(F):
     return F + ideal(J.minors(1))
 
 
-def hessian_determinant(F):
+def hessian_determinant_curve(F):
 
     return ideal(jacobian(jacobian(F.gens()[0], (x0, x1, x2)), (x0, x1, x2)).determinant())
 
