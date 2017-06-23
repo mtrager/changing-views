@@ -30,6 +30,12 @@ def subrescoefs(p, q, i):
     cols = range(k -1)
     return [mat.matrix_from_columns(cols +[j]).det() for j in range(k -1, k +i)]
 
+def subdisc_coefs(p, i):
+    # p, q univariate
+    q = p.derivative()
+    disc = subrescoefs(p,q,i)
+    return []
+
     # Old stuff
 
 
