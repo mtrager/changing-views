@@ -140,3 +140,66 @@ def nodal_discriminant_ideal(degree):
     if len(cuspidal)==1:
         nodal=nodal[0]
     return nodal
+
+## COMPUTATION OF DISCRIMINANTS
+
+degree = 6
+#order = '3+2'
+
+v=['a%d' % i for i in xrange(degree +1)]
+v.append('t')
+R=PolynomialRing(QQ, v)
+R.inject_variables()
+poly = sum([R('a%d' %i) *t ^i for i in range(degree +1)]).polynomial(t)
+
+poly_d = poly.derivative()
+
+S0 = subrescoefs(poly, poly_d, 0)
+S1 = subrescoefs(poly, poly_d, 1)
+S2 = subrescoefs(poly, poly_d, 2)
+S3 = subrescoefs(poly, poly_d, 3)
+
+
+# disc
+
+dS = load('discriminants/disc2_2')
+sub_dict = dict(zip((dS.ring()).gens(),S2))
+S2disc_2 = dS.substitute(sub_dict)
+
+dS = load('discriminants/disc3_3')
+sub_dict = dict(zip((dS.ring()).gens(),S3))
+S3disc_3 = dS.substitute(sub_dict)
+
+dS = load('discriminants/disc3_2')
+sub_dict = dict(zip((dS.ring()).gens(),S3))
+S3disc_2 = dS.substitute(sub_dict)
+
+
+if order == '2':
+    disc = ideal(S0).saturation(ideal(S0[0].variables()[-1]))[0]
+
+if order == '3':
+    disc = ideal(S0)+ideal(S1)+S2disc_2
+    disc = disc.saturation(S2[0])[0]
+    disc = disc.saturation(ideal(S0[0].variables()[-1]))[0]
+
+if order == '2+2':
+    disc = ideal(S0[0])+ideal(S1)
+    disc = disc.saturation(ideal(S0[0].variables()[-1]))[0]
+    disc = disc.saturation(S2disc_2)[0]
+    
+if order == '4':
+    disc = ideal(S0)+ideal(S1)+ideal(S2)+S3disc_3
+    disc = disc.saturation(ideal(S0[0].variables()[-1]))[0]
+    disc = disc.saturation(S3[0])[0]
+    
+if order == '3+2':
+    disc = ideal(S0)+ideal(S1)+ideal(S2)+S3disc_2
+    disc = disc.saturation(ideal(S0[0].variables()[-1]))[0]
+    disc = disc.saturation(S3disc_3)[0]
+    disc = disc.saturation(S3[0])[0]
+
+if order == '2+2+2':
+    disc = ideal(S0)+ideal(S1)+ideal(S2)
+    disc = disc.saturation(ideal(S0[0].variables()[-1]))[0]
+    disc = disc.saturation(S3disc_2)[0]
