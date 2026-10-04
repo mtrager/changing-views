@@ -6,7 +6,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from sage.all import QQ, PolynomialRing, set_random_seed
 
-from visual_events.plane_curves import (example_curve, random_plane_curve,
+from changing_views.plane_curves import (example_curve, random_plane_curve,
                                         summary)
 
 R = PolynomialRing(QQ, 'x0,x1,x2')

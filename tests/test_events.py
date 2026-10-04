@@ -11,11 +11,11 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from sage.all import GF, PolynomialRing, QQ, set_random_seed
 
-from visual_events.binary_forms import coincident_root_locus
-from visual_events.grassmannian import dimension_and_degree, order_and_class
-from visual_events.space_curves import (chow_hypersurface, secant_congruence,
+from changing_views.binary_forms import coincident_root_locus
+from changing_views.grassmannian import dimension_and_degree, order_and_class
+from changing_views.space_curves import (chow_hypersurface, secant_congruence,
                                         trisecant_curve)
-from visual_events.surfaces import (congruence, contour, event_curve,
+from changing_views.surfaces import (congruence, contour, event_curve,
                                     hurwitz_threefold, parabolic_curve,
                                     random_surface)
 

@@ -1,4 +1,4 @@
-# Views of Curves and Surfaces
+# Changing views
 
 Sage code for computing visual events of curves and surfaces in P^3, and the
 singularities (flexes, bitangents, duals) of real plane curves. It accompanies
@@ -14,7 +14,7 @@ K. Kohn, B. Sturmfels, M. Trager, *Changing views on curves and surfaces*
   form and secant congruence of a space curve.
 - `Singularities of Plane Curves.ipynb`: real flexes and bitangents, dual curves,
   Plücker and Klein formulas, and a gallery of real quartics.
-- `visual_events/`: the code used by the notebooks.
+- `changing_views/`: the code used by the notebooks.
   - `binary_forms.py`: coincident root loci (discriminants), which encode the
     contact of a line with a curve or surface.
   - `grassmannian.py`: Plücker coordinates and invariants of families of lines.
