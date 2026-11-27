@@ -25,7 +25,7 @@ K. Kohn, B. Sturmfels, M. Trager, *Changing views on curves and surfaces*
 
 ## Setup
 
-Install SageMath with conda (here via [Miniforge](https://github.com/conda-forge/miniforge)):
+The code needs SageMath 10 or later (tested with 10.7). Install it with conda (here via [Miniforge](https://github.com/conda-forge/miniforge)):
 
 ```
 conda create -n sage sage python=3.11 jupyterlab
@@ -46,3 +46,22 @@ Run the tests with
 sage -python tests/test_events.py
 sage -python tests/test_plane_curves.py
 ```
+
+## Citation
+
+```bibtex
+@article{KohnSturmfelsTrager2017,
+  author  = {Kohn, Kathl{\'e}n and Sturmfels, Bernd and Trager, Matthew},
+  title   = {Changing views on curves and surfaces},
+  journal = {Acta Mathematica Vietnamica},
+  volume  = {43},
+  number  = {1},
+  pages   = {1--29},
+  year    = {2018},
+  note    = {arXiv:1707.01877}
+}
+```
+
+## License
+
+MIT; see [LICENSE](LICENSE).
